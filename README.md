@@ -32,7 +32,7 @@ Builds in a couple of seconds and avoids Gatekeeper entirely, because software y
 compile yourself is never quarantined.
 
 ```sh
-git clone https://github.com/OWNER/md-vault.git
+git clone https://github.com/AadeshTaneja/md-vault.git
 cd md-vault
 ./build.sh --install
 ```
@@ -41,7 +41,7 @@ Requires the Xcode Command Line Tools (`xcode-select --install`). Nothing else.
 
 ### From a release
 
-Download the `.dmg` from [Releases](https://github.com/OWNER/md-vault/releases),
+Download the `.dmg` from [Releases](https://github.com/AadeshTaneja/md-vault/releases),
 open it, drag **MD Vault** to Applications.
 
 These builds are signed ad-hoc but **not notarized**, so macOS will warn you on
