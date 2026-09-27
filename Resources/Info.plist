@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>MD Opener</string>
+	<string>MD Vault</string>
 	<key>CFBundleDisplayName</key>
-	<string>MD Opener</string>
+	<string>MD Vault</string>
 	<key>CFBundleExecutable</key>
-	<string>MDOpener</string>
+	<string>MDVault</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.aadesh.mdopener</string>
+	<string>com.aadesh.mdvault</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -29,7 +29,7 @@
 	<key>NSApplicationSupportsSecureRestorableState</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>MD Opener</string>
+	<string>MD Vault</string>
 
 	<key>UTImportedTypeDeclarations</key>
 	<array>

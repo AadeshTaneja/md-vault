@@ -1,0 +1,52 @@
+name: Release
+
+# Tag a version to publish a build:
+#   git tag v1.0.0 && git push origin v1.0.0
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: swift --version
+
+      - name: Build app
+        run: ./build.sh
+
+      - name: Package DMG
+        run: ./scripts/make-dmg.sh
+
+      - name: Zip app bundle
+        working-directory: build
+        run: ditto -c -k --keepParent "MD Vault.app" "MD-Vault.zip"
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            build/*.dmg
+            build/MD-Vault.zip
+          generate_release_notes: true
+          body: |
+            ## Install
+
+            **From source (recommended — no Gatekeeper warning):**
+            ```sh
+            git clone https://github.com/${{ github.repository }}.git
+            cd md-vault && ./build.sh --install
+            ```
+
+            **From the DMG:** download below, drag to Applications. This build is
+            not notarized, so the first launch needs **right-click → Open**, or:
+            ```sh
+            xattr -dr com.apple.quarantine "/Applications/MD Vault.app"
+            ```

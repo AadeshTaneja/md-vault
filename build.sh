@@ -1,13 +1,13 @@
 #!/bin/bash
-# Builds MD Opener.app with swiftc only — no Xcode project, no package manager.
+# Builds MD Vault.app with swiftc only — no Xcode project, no package manager.
 #   ./build.sh              build into ./build
 #   ./build.sh --install    build, then copy into /Applications
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 BUILD="$ROOT/build"
-APP="$BUILD/MD Opener.app"
-BIN="$APP/Contents/MacOS/MDOpener"
+APP="$BUILD/MD Vault.app"
+BIN="$APP/Contents/MacOS/MDVault"
 RES="$APP/Contents/Resources"
 INSTALL=0
 [[ "${1:-}" == "--install" ]] && INSTALL=1
@@ -27,7 +27,7 @@ swiftc \
   -O -whole-module-optimization \
   -target "$ARCH-apple-macos14.0" \
   -sdk "$SDK" \
-  -module-name MDOpener \
+  -module-name MDVault \
   -o "$BIN" \
   "${SOURCES[@]}"
 
@@ -53,12 +53,12 @@ if [[ $INSTALL -eq 1 ]]; then
   [[ -w "$DEST" ]] || DEST="$HOME/Applications"
   mkdir -p "$DEST"
   echo "==> Installing to $DEST"
-  rm -rf "$DEST/MD Opener.app"
+  rm -rf "$DEST/MD Vault.app"
   cp -R "$APP" "$DEST/"
-  "$LSREGISTER" -f "$DEST/MD Opener.app"
+  "$LSREGISTER" -f "$DEST/MD Vault.app"
   echo
-  echo "Installed: $DEST/MD Opener.app"
-  echo "Open a file:  open -a \"MD Opener\" some.md"
+  echo "Installed: $DEST/MD Vault.app"
+  echo "Open a file:  open -a \"MD Vault\" some.md"
 else
   "$LSREGISTER" -f "$APP"
   echo

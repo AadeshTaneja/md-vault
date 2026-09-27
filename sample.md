@@ -3,7 +3,7 @@ title: Front matter should be hidden
 author: test
 ---
 
-# MD Opener
+# MD Vault
 
 A **Markdown** reader and editor for macOS with *two views*: press ⌘E to flip
 between them. This paragraph has `inline code`, a [link](https://apple.com),

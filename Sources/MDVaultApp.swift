@@ -3,7 +3,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 @main
-struct MDOpenerApp: App {
+struct MDVaultApp: App {
     var body: some Scene {
         DocumentGroup(newDocument: MarkdownDocument()) { configuration in
             ContentView(document: configuration.$document, fileURL: configuration.fileURL)
@@ -21,7 +21,7 @@ struct MDCommands: Commands {
     var body: some Commands {
         CommandGroup(after: .newItem) {
             Divider()
-            Button("Set MD Opener as Default for Markdown…") {
+            Button("Set MD Vault as Default for Markdown…") {
                 DefaultAppHelper.setAsDefault()
             }
         }
@@ -67,7 +67,7 @@ enum DefaultAppHelper {
                     alert.messageText = "Couldn't set the default app"
                     alert.informativeText = error.localizedDescription
                 } else {
-                    alert.messageText = "MD Opener is now the default for Markdown files"
+                    alert.messageText = "MD Vault is now the default for Markdown files"
                     alert.informativeText = "Double-clicking a .md file in Finder will open it here."
                 }
                 alert.runModal()
