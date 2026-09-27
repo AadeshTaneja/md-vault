@@ -9,7 +9,11 @@ syntax-highlighted so the structure still reads at a glance.
 
 Press **⌘E** to flip between them.
 
-<!-- Add a screenshot here: drag an image into a GitHub issue, copy the URL -->
+| Viewer | Editor |
+|:------:|:------:|
+| ![The viewer, showing rendered Markdown](docs/viewer.png) | ![The editor, showing highlighted raw source](docs/editor.png) |
+
+*The same document, the same scroll position — ⌘E apart.*
 
 ## Why
 
